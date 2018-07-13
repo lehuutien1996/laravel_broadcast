@@ -28,6 +28,14 @@ services:
       MYSQL_USER: docker
       MYSQL_PASSWORD: 123456
 
+  echo-server:
+    image: lagun4ik/laravel-echo-server
+    ports:
+     - "1194:1194/udp"
+    restart: always
+    volumes:
+     - ./echo-server-data/:/app
+
   redis:
     image: redis
     ports:
