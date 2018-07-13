@@ -31,10 +31,10 @@ services:
   echo-server:
     image: lagun4ik/laravel-echo-server
     ports:
-     - "1194:1194/udp"
+     - "6001:6001/udp"
     restart: always
     volumes:
-     - ./echo-server-data/:/app
+     - ./docker/data/echo-server/:/app
 
   redis:
     image: redis
