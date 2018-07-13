@@ -6,8 +6,6 @@ services:
       context: .
     ports:
       - 80:80
-      # - 443:443
-      - 35729:35729 # LiveReload Common Port
     command: sh /init.sh
     volumes:
       - ./:/var/www/html
@@ -31,10 +29,10 @@ services:
   echo-server:
     image: lagun4ik/laravel-echo-server
     ports:
-     - "6001:6001/udp"
+     - 6001:6001
     restart: always
     volumes:
-     - ./docker/data/echo-server/:/app
+     - ./:/app
 
   redis:
     image: redis

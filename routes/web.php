@@ -12,24 +12,24 @@
 */
 
 Route::get('/user/{user}', function (App\User $user) {
-	Auth::login($user);
+    Auth::login($user);
 
-	return view('user');
+    return view('user');
 });
 
 Route::get('/admin', function () {
-	$user = App\User::find(11);
-	Auth::login($user);
+    $user = App\User::find(1);
+    Auth::login($user);
 
-	return view('admin');
+    return view('admin');
 });
 
 Route::get('/send/{user}', function (App\User $user) {
-	$content = request()->content;
+    $content = request()->content;
 
-	event(new App\Events\OrderShipped($user, $content));
+    event(new App\Events\OrderShipped($user, $content));
 
-	return "Okay! {$user->name}, {$content}";
+    return "Okay! {$user->name}, {$content}";
 });
 
 Auth::routes();

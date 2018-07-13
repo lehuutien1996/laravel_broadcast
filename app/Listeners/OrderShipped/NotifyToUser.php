@@ -19,6 +19,6 @@ class NotifyToUser
         $user = $event->user;
         $content = $event->content;
 
-        broadcast(new \App\Events\Notifications\OrderShipped\SendNotificationToUser($user, $content));        
+        broadcast(new \App\Events\Notifications\OrderShipped\SendNotificationToUser($user, $content));
     }
 }

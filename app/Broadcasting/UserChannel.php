@@ -7,16 +7,6 @@ use App\User;
 class UserChannel
 {
     /**
-     * Create a new channel instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Authenticate the user's access to the channel.
      *
      * @param  \App\User  $user
@@ -24,6 +14,8 @@ class UserChannel
      */
     public function join(User $user, $id)
     {
+        Log::info('USER CHANNEL');
+
         return $user->id == $id && $user->role_code == 2;
     }
 }

@@ -10,7 +10,9 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class SendNotificationToUser
+use App\Broadcasting\UserChannel;
+
+class SendNotificationToUser implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -35,11 +37,13 @@ class SendNotificationToUser
      */
     public function broadcastOn()
     {
-        return new PrivateChannel("users.{$this->user->id}");
+        return [
+            'users.' . $this->user->id,
+        ];
     }
 
     public function broadcastAs()
     {
-        return 'orders.shipped.user';
+        return 'orders.shipped';
     }
 }

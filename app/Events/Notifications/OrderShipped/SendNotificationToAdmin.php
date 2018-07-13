@@ -10,6 +10,8 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
+use App\Broadcasting\AdminChannel;
+
 class SendNotificationToAdmin implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
@@ -35,11 +37,11 @@ class SendNotificationToAdmin implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('admin');
+        return ['admin'];
     }
 
     public function broadcastAs()
     {
-        return 'orders.shipped.admin';
+        return 'orders.shipped';
     }
 }
