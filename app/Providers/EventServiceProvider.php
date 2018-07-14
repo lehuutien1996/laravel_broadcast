@@ -12,12 +12,7 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $listen = [
-        'App\Events\OrderShipped' => [
-            'App\Listeners\OrderShipped\NotifyToAdmin',
-            'App\Listeners\OrderShipped\NotifyToUser',
-        ],
-    ];
+    protected $listen = [];
 
     /**
      * Register any events for your application.

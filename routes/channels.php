@@ -11,5 +11,5 @@
 |
 */
 
-Broadcast::channel('admin', App\Broadcasting\AdminChannel::class);
-Broadcast::channel('users.{id}', App\Broadcasting\UserChannel::class);
+Broadcast::channel('admin', \App\Broadcasting\AdminChannel::class);
+Broadcast::channel('users.{id}', \App\Broadcasting\UserChannel::class);

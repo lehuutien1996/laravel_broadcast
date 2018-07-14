@@ -14,8 +14,6 @@ class UserChannel
      */
     public function join(User $user, $id)
     {
-        Log::info('USER CHANNEL');
-
         return $user->id == $id && $user->role_code == 2;
     }
 }

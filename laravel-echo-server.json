@@ -1,21 +1,23 @@
 {
-	"authHost": "http://localhost",
+	"authHost": "http://broadcast.com:8099",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [
 		{
-			"appId": "139dfbb7e4c735b9",
-			"key": "5e31d73d52b125d8b11dbd1813ddd482"
+			"appId": "3bb0f7b00214cb53",
+			"key": "c267fea6c13cc95aeabd8965199567c9"
 		}
 	],
-	"database": "sqlite",
+	"database": "redis",
 	"databaseConfig": {
-		"redis": {},
+		"redis": {
+            "host": "broadcast.com"
+        },
 		"sqlite": {
-			"databasePath": "/database/laravel-echo-server.sqlite"
-		}
+            "databasePath": "/database/laravel-echo-server.sqlite"
+        }
 	},
 	"devMode": true,
-	"host": null,
+	"host": "broadcast.com",
 	"port": "6001",
 	"protocol": "http",
 	"socketio": {},
@@ -23,10 +25,10 @@
 	"sslKeyPath": "",
 	"sslCertChainPath": "",
 	"sslPassphrase": "",
-	"apiOriginAllow": {
-		"allowCors": true,
-		"allowOrigin": "http://localhost",
-		"allowMethods": "GET, POST",
-		"allowHeaders": "Origin, Content-Type, X-Auth-Token, X-Requested-With, Accept, Authorization, X-CSRF-TOKEN, X-Socket-Id"
-	}
+    "apiOriginAllow": {
+        "allowCors": true,
+        "allowOrigin": "http://broadcast.com:8099",
+        "allowMethods": "GET,POST",
+        "allowHeaders": "Origin, Content-Type, X-Auth-Token, X-Requested-With, Accept, Authorization, X-CSRF-TOKEN, X-Socket-Id"
+    }
 }

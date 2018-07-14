@@ -14,6 +14,6 @@ class AdminChannel
      */
     public function join(User $user)
     {
-        return $user->role_code == 1;
+        return $user->role_code === 1;
     }
 }
